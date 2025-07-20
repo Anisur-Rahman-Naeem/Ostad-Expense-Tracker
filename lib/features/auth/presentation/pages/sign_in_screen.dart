@@ -69,52 +69,130 @@ class _SignInScreenState extends State<SignInScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  SizedBox(height: 28,),
-                  TextButton(onPressed: () {}, child: Text("Forgot Password",style: TextStyle(
-                    fontSize: 16,
-                    fontFamily: "Roboto",
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xff6a707c),
-                  ),),),
+                  SizedBox(height: 28),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Forgot Password",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: "Roboto",
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xff6a707c),
+                      ),
+                    ),
+                  ),
                 ],
               ),
-              SizedBox(
-                height: 40,
-              ),
+              SizedBox(height: 12),
               SizedBox(
                 width: 364,
-                child: ElevatedButton(onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xff65558F),
-                ), child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 10,),
-                  child: Text("Login",style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14,
-                    color: Colors.white
-                  ),),
-                ),),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xff65558F),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 10,
+                    ),
+                    child: Text(
+                      "Login",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 14,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
               ),
-              SizedBox(
-                height: 28,
-              ),
+              SizedBox(height: 13),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Or login with",style: TextStyle(
-                    fontSize: 16,
-                  ),)
+                  Text("Or login with", style: TextStyle(fontSize: 16)),
                 ],
               ),
-              SizedBox(
-                height: 61.53,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+              SizedBox(height: 13,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // Facebook
+                  GestureDetector(
+                    onTap: () {
+                      // Handle Facebook login
+                    },
+                    child: Container(
+                      width: 95.53,
+                      height: 61.53,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Colors.white,
+                        border: Border.all(color: Colors.grey.shade200, width: 1.5),
+                      ),
+                      child: Center(
+                        child: Image.asset(
+                          'asset/images/facebook.png',
+                          width: 28,
+                          height: 28,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                  ),
 
-                  ],
-                ),
-              )
+                  // Google
+                  GestureDetector(
+                    onTap: () {
+                      // Handle Google login
+                    },
+                    child: Container(
+                      width: 95.53,
+                      height: 61.53,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Colors.white,
+                        border: Border.all(color: Colors.grey.shade200, width: 1.5),
+                      ),
+                      child: Center(
+                        child: Image.asset(
+                          'asset/images/google.png',
+                          width: 28,
+                          height: 28,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  // Apple
+                  GestureDetector(
+                    onTap: () {
+                      // Handle Apple login
+                    },
+                    child: Container(
+                      width: 95.53,
+                      height: 61.53,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Colors.white,
+                        border: Border.all(color: Colors.grey.shade200, width: 1.5),
+                      ),
+                      child: Center(
+                        child: Image.asset(
+                          'asset/images/apple.png',
+                          width: 28,
+                          height: 28,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+
             ],
           ),
         ),
