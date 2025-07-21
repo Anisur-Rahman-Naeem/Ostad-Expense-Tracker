@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ostad_expense_tracker_project/features/auth/presentation/pages/sign_in_screen.dart';
+import 'package:ostad_expense_tracker_project/features/auth/presentation/pages/sign_up_screen.dart';
 
 import 'auth/splash_screen/presentation/pages/splash_screen.dart';
 
@@ -21,7 +22,14 @@ class AppRoutes {
             builder: (BuildContext context, GoRouterState state) {
               return SignInScreen();
             }
-          )
+          ),
+          GoRoute(
+            path: '/sign-up',
+            name: SignUpScreen.name,
+            builder: (BuildContext context, GoRouterState state) {
+              return SignUpScreen();
+            }
+          ),
         ],
       ),
     ],

@@ -1,5 +1,7 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:ostad_expense_tracker_project/features/auth/presentation/pages/sign_up_screen.dart';
+import 'package:ostad_expense_tracker_project/features/auth/presentation/pages/widget/Login_With_Other_Accounts_Widget.dart';
+import 'package:ostad_expense_tracker_project/features/auth/presentation/pages/widget/bottom_line_register_or_login.dart';
 import 'package:ostad_expense_tracker_project/features/auth/presentation/pages/widget/email_text_field.dart';
 import 'package:ostad_expense_tracker_project/features/auth/presentation/pages/widget/password_text_field.dart';
 import 'package:ostad_expense_tracker_project/features/common/presentation/widgets/signature_appbar.dart';
@@ -22,178 +24,107 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(24, 92, 24, 0),
-        child: Form(
-          key: _formkey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [SignatureAppBar()],
-              ),
-              SizedBox(height: 36),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Welcome back! Glad",
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontFamily: "Roboto",
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "to see you, Again!",
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontFamily: "Roboto",
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 38),
-              email_text_field(emailTEController: _emailTEController),
-              SizedBox(height: 28),
-              PasswordTextField(passwordTEController: _passwordTEController),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  SizedBox(height: 28),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Forgot Password",
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(24, 92, 24, 0),
+          child: Form(
+            key: _formkey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [SignatureAppBar()],
+                ),
+                SizedBox(height: 36),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Welcome back! Glad",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 32,
                         fontFamily: "Roboto",
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xff6a707c),
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 12),
-              SizedBox(
-                width: 364,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xff65558F),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 24,
-                      vertical: 10,
-                    ),
-                    child: Text(
-                      "Login",
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "to see you, Again!",
                       style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 14,
-                        color: Colors.white,
+                        fontSize: 32,
+                        fontFamily: "Roboto",
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 38),
+                email_text_field(emailTEController: _emailTEController),
+                SizedBox(height: 10),
+                PasswordTextField(passwordTEController: _passwordTEController),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    SizedBox(height: 28),
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        "Forgot Password",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontFamily: "Roboto",
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xff6a707c),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 42),
+                SizedBox(
+                  width: 364,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xff65558F),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 24,
+                        vertical: 10,
+                      ),
+                      child: Text(
+                        "Login",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 14,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(height: 13),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Or login with", style: TextStyle(fontSize: 16)),
-                ],
-              ),
-              SizedBox(height: 13,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  // Facebook
-                  GestureDetector(
-                    onTap: () {
-                      // Handle Facebook login
-                    },
-                    child: Container(
-                      width: 95.53,
-                      height: 61.53,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Colors.white,
-                        border: Border.all(color: Colors.grey.shade200, width: 1.5),
-                      ),
-                      child: Center(
-                        child: Image.asset(
-                          'asset/images/facebook.png',
-                          width: 28,
-                          height: 28,
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  // Google
-                  GestureDetector(
-                    onTap: () {
-                      // Handle Google login
-                    },
-                    child: Container(
-                      width: 95.53,
-                      height: 61.53,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Colors.white,
-                        border: Border.all(color: Colors.grey.shade200, width: 1.5),
-                      ),
-                      child: Center(
-                        child: Image.asset(
-                          'asset/images/google.png',
-                          width: 28,
-                          height: 28,
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  // Apple
-                  GestureDetector(
-                    onTap: () {
-                      // Handle Apple login
-                    },
-                    child: Container(
-                      width: 95.53,
-                      height: 61.53,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Colors.white,
-                        border: Border.all(color: Colors.grey.shade200, width: 1.5),
-                      ),
-                      child: Center(
-                        child: Image.asset(
-                          'asset/images/apple.png',
-                          width: 28,
-                          height: 28,
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-
-            ],
+                SizedBox(height: 13),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Or Login with", style: TextStyle(fontSize: 16)),
+                  ],
+                ),
+                SizedBox(height: 13),
+                LoginWithOtherAccountsWidget(),
+                SizedBox(height: 40),
+                BottomLineRegisterOrLogin(approachText: 'Don’t have an account? ', buttonText: 'Register', nextScreenName: SignUpScreen.name,),
+              ],
+            ),
           ),
         ),
       ),
