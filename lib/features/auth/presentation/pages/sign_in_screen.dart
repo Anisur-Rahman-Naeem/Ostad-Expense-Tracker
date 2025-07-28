@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ostad_expense_tracker_project/features/auth/presentation/pages/sign_up_screen.dart';
 import 'package:ostad_expense_tracker_project/features/auth/presentation/pages/widget/Login_With_Other_Accounts_Widget.dart';
 import 'package:ostad_expense_tracker_project/features/auth/presentation/pages/widget/bottom_line_register_or_login.dart';
 import 'package:ostad_expense_tracker_project/features/auth/presentation/pages/widget/email_text_field.dart';
 import 'package:ostad_expense_tracker_project/features/auth/presentation/pages/widget/password_text_field.dart';
 import 'package:ostad_expense_tracker_project/features/common/presentation/widgets/signature_appbar.dart';
+import 'package:ostad_expense_tracker_project/features/home/presentation/pages/homepage_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -92,7 +94,9 @@ class _SignInScreenState extends State<SignInScreen> {
                 SizedBox(
                   width: 364,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.goNamed(HomepageScreen.name);
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xff65558F),
                     ),
