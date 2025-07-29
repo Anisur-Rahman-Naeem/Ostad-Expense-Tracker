@@ -9,6 +9,9 @@ class ExpenseTracker extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: AppRoutes.router,
+      theme: ThemeData(
+        useMaterial3: true
+      ),
     );
   }
 }
