@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ostad_expense_tracker_project/features/common/presentation/widgets/curved_header.dart';
 import 'package:ostad_expense_tracker_project/features/common/presentation/widgets/notification_bell_icon.dart';
+import 'package:ostad_expense_tracker_project/features/home/presentation/widgets/transaction_widget.dart';
 
 class HomepageScreen extends StatefulWidget {
   const HomepageScreen({super.key});
@@ -12,8 +13,8 @@ class HomepageScreen extends StatefulWidget {
 }
 
 class _HomepageScreenState extends State<HomepageScreen> {
-  int _selectedIndex = 0;
   final bool hasUnread = true;
+  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -85,40 +86,59 @@ class _HomepageScreenState extends State<HomepageScreen> {
                             SizedBox(height: 20),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                income_details(),
-                                expense_details(),
-                              ],
+                              children: [income_details(), expense_details()],
                             ),
                           ],
                         ),
                       ),
                     ),
-
                   ),
-                  Padding(padding: EdgeInsets.fromLTRB(17.0, 0.0, 0.0, 0.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("Transactions History",style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            fontFamily: "Inter",
-                            color: Colors.black
-                          ),),
-                          TextButton(onPressed: (){}, child: Text("See all",style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            fontFamily: "Inter",
-                            color: Color(0xFF666666)
-                          ),))
-                        ],
-                      )
-                    ],
-                  ),)
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(17.0, 0.0, 0.0, 0.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Transactions History",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                                fontFamily: "Inter",
+                                color: Colors.black,
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                "See all",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily: "Inter",
+                                  color: Color(0xFF666666),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Transaction_widget(amount: '+ \$ 850.00', date: 'Today', imagePath: 'asset/images/upwork_logo_icon.png', transactionName: 'Upwork',),
+                        SizedBox(height: 5,),
+                        Transaction_widget(amount: '- \$ 85.00', date: 'Yesterday', imagePath: 'asset/images/people.jpg', transactionName: 'Transfer',),
+                        SizedBox(height: 5,),
+                        Transaction_widget(amount: '+ \$ 1,406.00', date: 'Jan 30, 2022', imagePath: 'asset/images/paypal-logo-icon.jpg', transactionName: 'Paypal',),
+                        SizedBox(height: 5,),
+                        Transaction_widget(amount: '- \$ 11.00', date: 'Jan 16, 2022', imagePath: 'asset/images/Youtube_logo.png', transactionName: 'Youtube',),
+                        SizedBox(height: 5,),
+                        Transaction_widget(amount: '- \$ 90.99', date: 'Yesterday', imagePath: 'asset/images/people.jpg', transactionName: 'Transfer',),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -206,31 +226,33 @@ class _HomepageScreenState extends State<HomepageScreen> {
                 shape: BoxShape.circle,
               ),
               child: Center(
-                child: Icon(
-                  Icons.arrow_upward,
-                  size: 15,
-                  color: Colors.white,
-                ),
+                child: Icon(Icons.arrow_upward, size: 15, color: Colors.white),
               ),
             ),
-            SizedBox(width: 5,),
-            Text("Expenses", style: TextStyle(
-              fontSize: 16,
-              fontFamily: "Inter",
-              fontWeight: FontWeight.w500,
-              color: Colors.white,
-            ),)
+            SizedBox(width: 5),
+            Text(
+              "Expenses",
+              style: TextStyle(
+                fontSize: 16,
+                fontFamily: "Inter",
+                fontWeight: FontWeight.w500,
+                color: Colors.white,
+              ),
+            ),
           ],
         ),
         Padding(
           padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-          child: Text("\$ 284.00", style: TextStyle(
+          child: Text(
+            "\$ 284.00",
+            style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600,
               fontFamily: "Inter",
-              color: Colors.white
-          ),),
-        )
+              color: Colors.white,
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -258,28 +280,43 @@ class _HomepageScreenState extends State<HomepageScreen> {
                 ),
               ),
             ),
-            SizedBox(width: 5,),
-            Text("Income", style: TextStyle(
-              fontSize: 16,
-              fontFamily: "Inter",
-              fontWeight: FontWeight.w500,
-              color: Colors.white,
-            ),)
+            SizedBox(width: 5),
+            Text(
+              "Income",
+              style: TextStyle(
+                fontSize: 16,
+                fontFamily: "Inter",
+                fontWeight: FontWeight.w500,
+                color: Colors.white,
+              ),
+            ),
           ],
         ),
         Padding(
           padding: const EdgeInsets.fromLTRB(1.5, 0, 0, 0),
-          child: Text("\$ 1,840.00", style: TextStyle(
+          child: Text(
+            "\$ 1,840.00",
+            style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600,
               fontFamily: "Inter",
-              color: Colors.white
-          ),),
-        )
+              color: Colors.white,
+            ),
+          ),
+        ),
       ],
     );
   }
 
+
+  Color getTransactionColor(String value) {
+    if (value.startsWith('+')){
+      return Colors.green;
+    } else if (value.startsWith('-')){
+      return Colors.red;
+    }
+    return Colors.black;
+  }
   Row total_balance_and_header() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -296,16 +333,14 @@ class _HomepageScreenState extends State<HomepageScreen> {
               ),
             ),
             SizedBox(),
-            Icon(
-              Icons.keyboard_arrow_up,
-              color: Colors.white,
-            ),
+            Icon(Icons.keyboard_arrow_up, color: Colors.white),
           ],
         ),
-        IconButton(onPressed: () {},
-            icon: Icon(Icons.more_horiz, color: Colors.white)),
+        IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.more_horiz, color: Colors.white),
+        ),
       ],
     );
   }
 }
-

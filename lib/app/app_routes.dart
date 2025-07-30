@@ -32,7 +32,7 @@ class AppRoutes {
             }
           ),
           GoRoute(
-            path: '/home-page',
+            path: '/home',
             name: HomepageScreen.name,
             builder: (BuildContext context, GoRouterState state) {
               return HomepageScreen();
