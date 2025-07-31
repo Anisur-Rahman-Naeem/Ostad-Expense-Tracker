@@ -14,7 +14,6 @@ class HomepageScreen extends StatefulWidget {
 
 class _HomepageScreenState extends State<HomepageScreen> {
   final bool hasUnread = true;
-  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -145,68 +144,6 @@ class _HomepageScreenState extends State<HomepageScreen> {
           ),
         ],
       ),
-      backgroundColor: Colors.white,
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.white,
-        shape: CircularNotchedRectangle(),
-        notchMargin: 6.0,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            IconButton(
-              onPressed: () {
-                setState(() => _selectedIndex = 0);
-              },
-              icon: Icon(
-                Icons.home_rounded,
-                size: 35,
-                color: _selectedIndex == 0 ? Color(0xff65558F) : Colors.grey,
-              ),
-            ),
-            IconButton(
-              onPressed: () {
-                setState(() => _selectedIndex = 1);
-              },
-              icon: Icon(
-                Icons.signal_cellular_alt_sharp,
-                size: 35,
-                color: _selectedIndex == 1 ? Color(0xff65558F) : Colors.grey,
-              ),
-            ),
-            SizedBox(width: 40),
-            IconButton(
-              onPressed: () {
-                setState(() => _selectedIndex = 3);
-              },
-              icon: Image.asset(
-                "asset/images/bottom_nav_icons/img_2.png",
-                width: 29,
-                height: 29,
-                fit: BoxFit.contain,
-                color: _selectedIndex == 3 ? Color(0xff65558F) : Colors.grey,
-              ),
-            ),
-            IconButton(
-              onPressed: () {
-                setState(() => _selectedIndex = 4);
-              },
-              icon: Icon(
-                Icons.person,
-                size: 35,
-                color: _selectedIndex == 4 ? Color(0xff65558F) : Colors.grey,
-              ),
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Color(0xff65558F),
-        foregroundColor: Colors.white,
-        shape: CircleBorder(),
-        child: Icon(Icons.add, size: 30),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 

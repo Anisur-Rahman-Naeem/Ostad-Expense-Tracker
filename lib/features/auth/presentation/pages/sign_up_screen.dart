@@ -7,6 +7,7 @@ import 'package:ostad_expense_tracker_project/features/auth/presentation/pages/w
 import 'package:ostad_expense_tracker_project/features/auth/presentation/pages/widget/custom_text_field.dart';
 import 'package:ostad_expense_tracker_project/features/auth/presentation/pages/widget/email_text_field.dart';
 import 'package:ostad_expense_tracker_project/features/auth/presentation/pages/widget/password_text_field.dart';
+import 'package:ostad_expense_tracker_project/features/common/presentation/pages/bottom_nav_bar_screen.dart';
 import 'package:ostad_expense_tracker_project/features/common/presentation/widgets/signature_appbar.dart';
 import 'package:ostad_expense_tracker_project/features/home/presentation/pages/homepage_screen.dart';
 
