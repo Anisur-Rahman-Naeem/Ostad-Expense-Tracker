@@ -18,6 +18,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Stack(
         children: [
           CurvedHeader(),
@@ -144,6 +145,14 @@ class _HomepageScreenState extends State<HomepageScreen> {
           ),
         ],
       ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {},
+      //   backgroundColor: Color(0xff65558F),
+      //   foregroundColor: Colors.white,
+      //   shape: CircleBorder(),
+      //   child: Icon(Icons.add, size: 30),
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 

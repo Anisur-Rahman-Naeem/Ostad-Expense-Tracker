@@ -16,6 +16,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
+    final currentBranchIndex = widget.shell.currentIndex;
     return Scaffold(
       body: widget.shell,
       backgroundColor: Colors.white,
@@ -23,7 +24,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
         color: Colors.white,
         shape: CircularNotchedRectangle(),
         notchMargin: 6.0,
-        child: Row(
+        child: currentBranchIndex == 0 ? Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             IconButton(
@@ -74,15 +75,66 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
               ),
             ),
           ],
+        ) : Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            IconButton(
+              onPressed: () {
+                setState(() => _selectedIndex = 0);
+                widget.shell.goBranch(0);
+              },
+              icon: Icon(
+                Icons.home_rounded,
+                size: 35,
+                color: _selectedIndex == 0 ? Color(0xff65558F) : Colors.grey,
+              ),
+            ),
+            IconButton(
+              onPressed: () {
+                setState(() => _selectedIndex = 1);
+                widget.shell.goBranch(1);
+              },
+              icon: Icon(
+                Icons.signal_cellular_alt_sharp,
+                size: 35,
+                color: _selectedIndex == 1 ? Color(0xff65558F) : Colors.grey,
+              ),
+            ),
+            // SizedBox(width: 40),
+            IconButton(
+              onPressed: () {
+                setState(() => _selectedIndex = 2);
+                widget.shell.goBranch(2);
+              },
+              icon: Image.asset(
+                "asset/images/bottom_nav_icons/img_2.png",
+                width: 29,
+                height: 29,
+                fit: BoxFit.contain,
+                color: _selectedIndex == 2 ? Color(0xff65558F) : Colors.grey,
+              ),
+            ),
+            IconButton(
+              onPressed: () {
+                setState(() => _selectedIndex = 3);
+                widget.shell.goBranch(3);
+              },
+              icon: Icon(
+                Icons.person,
+                size: 35,
+                color: _selectedIndex == 3 ? Color(0xff65558F) : Colors.grey,
+              ),
+            ),
+          ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: currentBranchIndex == 0 ? FloatingActionButton(
         onPressed: () {},
         backgroundColor: Color(0xff65558F),
         foregroundColor: Colors.white,
         shape: CircleBorder(),
         child: Icon(Icons.add, size: 30),
-      ),
+      ): null,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
