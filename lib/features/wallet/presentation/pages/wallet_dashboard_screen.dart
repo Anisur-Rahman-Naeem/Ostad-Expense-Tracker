@@ -5,6 +5,7 @@ import 'package:ostad_expense_tracker_project/features/common/presentation/widge
 import 'package:ostad_expense_tracker_project/features/wallet/presentation/widgets/transaction_medium_icon.dart';
 
 class WalletDashboardScreen extends StatelessWidget {
+  
   const WalletDashboardScreen({super.key});
 
   static const String name = "wallet-dashboard-screen";
@@ -19,7 +20,7 @@ class WalletDashboardScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                CustomAppBar(labelText: 'Wallet', trailingIcon: notification_bell_icon(hasUnread: true),),
+                CustomAppBar(labelText: 'Wallet', trailingIcon: notification_bell_icon(hasUnread: true)),
                 Expanded(
                   child: Container(
                     width: double.infinity,

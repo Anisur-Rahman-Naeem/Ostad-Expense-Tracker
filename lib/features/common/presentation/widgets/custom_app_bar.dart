@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-class CustomAppBar extends StatelessWidget {
+class CustomAppBar extends StatefulWidget {
   const CustomAppBar({
     super.key, required this.labelText, required this.trailingIcon,
   });
@@ -9,7 +10,13 @@ class CustomAppBar extends StatelessWidget {
   final Widget trailingIcon;
 
   @override
+  State<CustomAppBar> createState() => _CustomAppBarState();
+}
+
+class _CustomAppBarState extends State<CustomAppBar> {
+  @override
   Widget build(BuildContext context) {
+    final shell = StatefulNavigationShell.of(context);
     return Padding(
       padding: EdgeInsets.fromLTRB(5, 20, 10, 35),
       child: Row(
@@ -21,10 +28,12 @@ class CustomAppBar extends StatelessWidget {
               size: 30,
               color: Colors.white,
             ),
-            onPressed: () {},
+            onPressed: () {
+              shell.goBranch(0);
+            }
           ),
           Text(
-            labelText,
+            widget.labelText,
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w600,
@@ -32,7 +41,7 @@ class CustomAppBar extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-          trailingIcon,
+          widget.trailingIcon,
         ],
       ),
     );

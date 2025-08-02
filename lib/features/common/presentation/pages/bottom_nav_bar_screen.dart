@@ -17,6 +17,14 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   @override
   Widget build(BuildContext context) {
     final currentBranchIndex = widget.shell.currentIndex;
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_selectedIndex != currentBranchIndex) {
+        setState(() {
+          _selectedIndex = currentBranchIndex;
+        });
+      }
+    });
     return Scaffold(
       body: widget.shell,
       backgroundColor: Colors.white,
