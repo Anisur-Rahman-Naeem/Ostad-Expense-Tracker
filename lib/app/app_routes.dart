@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ostad_expense_tracker_project/features/auth/presentation/pages/sign_in_screen.dart';
 import 'package:ostad_expense_tracker_project/features/auth/presentation/pages/sign_up_screen.dart';
 import 'package:ostad_expense_tracker_project/features/common/presentation/pages/bottom_nav_bar_screen.dart';
-import 'package:ostad_expense_tracker_project/features/home/data/data_source/local/home_local_data_source.dart';
+import 'package:ostad_expense_tracker_project/features/expense/presentation/pages/add_expense_screen.dart';
 import 'package:ostad_expense_tracker_project/features/home/presentation/pages/homepage_screen.dart';
 import 'package:ostad_expense_tracker_project/features/profile/presentation/pages/profile_screen.dart';
 import 'package:ostad_expense_tracker_project/features/statistics/presentation/pages/statistics_screen.dart';
@@ -66,6 +66,13 @@ class AppRoutes {
           ),
 
         ],
+      ),
+      GoRoute(
+        path: '/add-expense',
+        name: AddExpenseScreen.name,
+        builder: (BuildContext context, GoRouterState state) {
+          return AddExpenseScreen();
+        },
       ),
       GoRoute(
         path: '/splash',

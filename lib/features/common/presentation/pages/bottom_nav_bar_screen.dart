@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ostad_expense_tracker_project/features/expense/presentation/pages/add_expense_screen.dart';
 
 class BottomNavBarScreen extends StatefulWidget {
   const BottomNavBarScreen({super.key, required this.shell});
@@ -137,7 +138,9 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
         ),
       ),
       floatingActionButton: currentBranchIndex == 0 ? FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          context.pushNamed(AddExpenseScreen.name);
+        },
         backgroundColor: Color(0xff65558F),
         foregroundColor: Colors.white,
         shape: CircleBorder(),
