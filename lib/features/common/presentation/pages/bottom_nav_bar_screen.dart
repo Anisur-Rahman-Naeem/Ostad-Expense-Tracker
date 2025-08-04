@@ -30,6 +30,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
       body: widget.shell,
       backgroundColor: Colors.white,
       bottomNavigationBar: BottomAppBar(
+        elevation: 8,
         color: Colors.white,
         shape: CircularNotchedRectangle(),
         notchMargin: 6.0,
