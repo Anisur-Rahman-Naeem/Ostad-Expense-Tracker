@@ -9,6 +9,7 @@ import 'package:ostad_expense_tracker_project/features/profile/presentation/page
 import 'package:ostad_expense_tracker_project/features/profile/presentation/pages/profile_screen.dart';
 import 'package:ostad_expense_tracker_project/features/profile/presentation/pages/profile_update_screen.dart';
 import 'package:ostad_expense_tracker_project/features/statistics/presentation/pages/statistics_screen.dart';
+import 'package:ostad_expense_tracker_project/features/wallet/presentation/pages/add_wallet_option_screen.dart';
 import 'package:ostad_expense_tracker_project/features/wallet/presentation/pages/wallet_dashboard_screen.dart';
 
 import 'auth/splash_screen/presentation/pages/splash_screen.dart';
@@ -52,6 +53,15 @@ class AppRoutes {
                 builder: (BuildContext context, GoRouterState state) {
                   return WalletDashboardScreen();
                 },
+                routes: [
+                  GoRoute(
+                      path: '/add-wallet-option',
+                      name: AddWalletOptionScreen.name,
+                      builder: (BuildContext context, GoRouterState state) {
+                        return AddWalletOptionScreen();
+                      },
+                  ),
+                ]
               ),
             ],
           ),

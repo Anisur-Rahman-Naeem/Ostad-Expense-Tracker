@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ostad_expense_tracker_project/features/common/presentation/widgets/curved_header.dart';
 import 'package:ostad_expense_tracker_project/features/common/presentation/widgets/custom_app_bar.dart';
 import 'package:ostad_expense_tracker_project/features/common/presentation/widgets/notification_bell_icon.dart';
+import 'package:ostad_expense_tracker_project/features/wallet/presentation/pages/add_wallet_option_screen.dart';
 import 'package:ostad_expense_tracker_project/features/wallet/presentation/widgets/transaction_medium_icon.dart';
 
 class WalletDashboardScreen extends StatelessWidget {
@@ -65,7 +67,9 @@ class WalletDashboardScreen extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                TransactionMediumIcon(labelText: 'Add', imageIcon: Icon(Icons.add), onPressed: () {  },),
+                                TransactionMediumIcon(labelText: 'Add', imageIcon: Icon(Icons.add), onPressed: () {
+                                  context.pushNamed(AddWalletOptionScreen.name);
+                                },),
                                 TransactionMediumIcon(labelText: "Pay", imageIcon: Icon(Icons.qr_code), onPressed: () {  },),
                                 TransactionMediumIcon(labelText: "Send", imageIcon: Image.asset(
                                   "asset/images/img.png",
