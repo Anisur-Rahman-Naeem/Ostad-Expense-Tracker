@@ -7,6 +7,7 @@ import 'package:ostad_expense_tracker_project/features/expense/presentation/page
 import 'package:ostad_expense_tracker_project/features/home/presentation/pages/homepage_screen.dart';
 import 'package:ostad_expense_tracker_project/features/profile/presentation/pages/account_info_screen.dart';
 import 'package:ostad_expense_tracker_project/features/profile/presentation/pages/profile_screen.dart';
+import 'package:ostad_expense_tracker_project/features/profile/presentation/pages/profile_update_screen.dart';
 import 'package:ostad_expense_tracker_project/features/statistics/presentation/pages/statistics_screen.dart';
 import 'package:ostad_expense_tracker_project/features/wallet/presentation/pages/wallet_dashboard_screen.dart';
 
@@ -67,6 +68,13 @@ class AppRoutes {
                     path: '/account-info-screen',
                     name: AccountInfoScreen.name,
                     builder: (context, state) => AccountInfoScreen(),
+                    routes: [
+                      GoRoute(
+                          path: '/profile-update',
+                          name: ProfileUpdateScreen.name,
+                          builder: (context, state) => ProfileUpdateScreen(),
+                      ),
+                    ]
                   ),
                 ],
               ),
