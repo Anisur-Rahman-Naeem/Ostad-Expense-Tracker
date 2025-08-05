@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-class ExpirationAndZip extends StatelessWidget {
+class ExpirationAndZip extends StatefulWidget {
   const ExpirationAndZip({
     super.key,
     required FocusNode expirationFocusNode,
@@ -22,6 +23,16 @@ class ExpirationAndZip extends StatelessWidget {
   final TextEditingController _zipTEController;
 
   @override
+  State<ExpirationAndZip> createState() => _ExpirationAndZipState();
+}
+
+class _ExpirationAndZipState extends State<ExpirationAndZip> {
+  final expiryDateFormatter = MaskTextInputFormatter(
+    mask: '##/##',
+    filter: { "#": RegExp(r'[0-9]') },
+  );
+
+  @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -29,12 +40,13 @@ class ExpirationAndZip extends StatelessWidget {
         SizedBox(
           width: 180,
           child: TextFormField(
-            focusNode: _expirationFocusNode,
-            controller: _expirationTEController,
+            focusNode: widget._expirationFocusNode,
+            controller: widget._expirationTEController,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             keyboardType: TextInputType.number,
+            inputFormatters: [expiryDateFormatter],
             style: TextStyle(
-              color: _expirationFocusNode.hasFocus ? focusColor : defaultColor,
+              color: widget._expirationFocusNode.hasFocus ? widget.focusColor : widget.defaultColor,
               fontWeight: FontWeight.w400,
               fontSize: 12,
               fontFamily: "Inter",
@@ -81,12 +93,12 @@ class ExpirationAndZip extends StatelessWidget {
         SizedBox(
           width: 120,
           child: TextFormField(
-            focusNode: _zipFocusNode,
-            controller: _zipTEController,
+            focusNode: widget._zipFocusNode,
+            controller: widget._zipTEController,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             keyboardType: TextInputType.number,
             style: TextStyle(
-              color: _zipFocusNode.hasFocus ? focusColor : defaultColor,
+              color: widget._zipFocusNode.hasFocus ? widget.focusColor : widget.defaultColor,
               fontWeight: FontWeight.w400,
               fontSize: 12,
               fontFamily: "Inter",
