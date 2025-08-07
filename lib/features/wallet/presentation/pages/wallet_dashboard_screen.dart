@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ostad_expense_tracker_project/features/common/presentation/widgets/curved_header.dart';
 import 'package:ostad_expense_tracker_project/features/common/presentation/widgets/custom_app_bar.dart';
 import 'package:ostad_expense_tracker_project/features/common/presentation/widgets/notification_bell_icon.dart';
+import 'package:ostad_expense_tracker_project/features/common/presentation/widgets/pop_installed_custom_app_bar.dart';
 import 'package:ostad_expense_tracker_project/features/wallet/presentation/pages/add_wallet_option_screen.dart';
 import 'package:ostad_expense_tracker_project/features/wallet/presentation/widgets/transaction_medium_icon.dart';
 
@@ -70,14 +71,16 @@ class WalletDashboardScreen extends StatelessWidget {
                                 TransactionMediumIcon(labelText: 'Add', imageIcon: Icon(Icons.add), onPressed: () {
                                   context.pushNamed(AddWalletOptionScreen.name);
                                 },),
-                                TransactionMediumIcon(labelText: "Pay", imageIcon: Icon(Icons.qr_code), onPressed: () {  },),
+                                TransactionMediumIcon(labelText: "Pay", imageIcon: Icon(Icons.qr_code), onPressed: () { _showPaymentConfirmationDialog(context); },),
                                 TransactionMediumIcon(labelText: "Send", imageIcon: Image.asset(
                                   "asset/images/img.png",
                                   height: 30,
                                   width: 30,
                                   color: Color(0xff4F378A),
                                   alignment: Alignment.center,
-                                ), onPressed: () {  },),
+                                ), onPressed: () {
+                                  _showPaymentConfirmationDialog(context);
+                                },),
                               ],
                             ),
                           ),
@@ -93,4 +96,82 @@ class WalletDashboardScreen extends StatelessWidget {
       ),
     );
   }
+  void _showPaymentConfirmationDialog(BuildContext context) {
+    showDialog(context: context, builder: (BuildContext context) {
+      return Dialog(
+        backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Container(
+          width: 500,
+          height: 350,
+          padding: EdgeInsets.all(18),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Center(
+                child: Text("Select an option",style: TextStyle(
+                  fontFamily: "Roboto",
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16,
+                ),),
+              ),
+              SizedBox(height: 12,),
+              InkWell(
+                onTap: () {
+                  print("cards");
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Cards",style: TextStyle(
+                    fontFamily: "Roboto",
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,),),
+                    Image.asset("asset/images/cards.png",height: 50,width: 50,)
+                  ],
+                ),
+              ),
+              SizedBox(height: 5,),
+              InkWell(
+                onTap: () {
+                  print("Bank Account");
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Bank Account",style: TextStyle(
+                      fontFamily: "Roboto",
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,),),
+                    Image.asset("asset/images/bank account.png",height: 50,width: 50,),
+                  ],
+                ),
+              ),
+              SizedBox(height: 5,),
+              InkWell(
+                onTap: () {
+                  print("Others");
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Others",style: TextStyle(
+                      fontFamily: "Roboto",
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,),),
+                    Image.asset("asset/images/others.png",height: 50,width: 50,),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+
+    );
+  }
+
 }
