@@ -17,6 +17,7 @@ dependencies:
   another_dashed_container: ^1.0.0
   mask_text_input_formatter: ^2.9.0
   fl_chart: ^1.0.0
+  dartz: ^0.10.1
 
 dev_dependencies:
   flutter_test:
