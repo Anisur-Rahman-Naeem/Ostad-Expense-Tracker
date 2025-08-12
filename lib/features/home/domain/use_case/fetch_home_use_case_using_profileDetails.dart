@@ -5,12 +5,13 @@ import 'package:ostad_expense_tracker_project/features/common/domain/repository/
 import 'package:ostad_expense_tracker_project/features/profile/domain/entity/profile.dart';
 import 'package:ostad_expense_tracker_project/features/profile/domain/repository/profile_repository.dart';
 
-class FetchProfileUseCase implements UseCase<Either<ApiError,Profile>, NoParams>{
+class FetchHomeUseCaseUsingProfileDetails implements UseCase<Either<ApiError, Profile>, NoParams>{
   final ProfileRepository profileRepository;
 
-  FetchProfileUseCase({required this.profileRepository});
+  FetchHomeUseCaseUsingProfileDetails({required this.profileRepository});
+
   @override
-  Future<Either<ApiError, Profile>> call(NoParams params) async{
+  Future<Either<ApiError, Profile>> call(NoParams params) async {
     return await profileRepository.fetchProfileDetails();
   }
 
