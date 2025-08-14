@@ -8,8 +8,8 @@ class RequestModel {
 
   RequestModel({
     required this.path,
-    required this.queryParams,
-    required this.formData,
-    required this.headers,
+    this.queryParams,
+    this.formData,
+    this.headers,
   });
 }
